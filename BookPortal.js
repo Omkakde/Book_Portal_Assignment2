@@ -65,7 +65,7 @@ function AddBookToCart() {
         return;
     } else {
         const quantity = parseInt(readline.question("    Enter Quantity: "), 10);
-        if (isNaN(quantity) || quantity <= 0 || quantity > booksList[input].quantity) {
+        if ( quantity <= 0 || quantity > booksList[input].quantity) {
             console.log(`Invalid quantity. Please enter a value between 1 and ${booksList[input].quantity}.`);
             return;
         }
@@ -74,6 +74,7 @@ function AddBookToCart() {
 
         if (booksList[input].quantity === 0) {
             booksList[input].status = "unavailable";
+            console.log("unavailable");    // UC3
         }
 
         let cartBook = {
